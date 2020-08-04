@@ -1,12 +1,12 @@
 <template>
-  <div>发现</div>
+  <div>云村</div>
 </template>
-<script lang="ts">
+<script lang='ts'>
 import { Vue, Component } from 'vue-property-decorator';
 @Component({
   components: {}
 })
-export default class FindIndex extends Vue {
-  name = 'findIndex';
+export default class FriendIndex extends Vue {
+  name = 'FriendIndex';
 }
 </script>
