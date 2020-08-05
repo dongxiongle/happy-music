@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav>导航</nav>
-    <keep-live>
+    <keep-alive>
       <router-view></router-view>
-    </keep-live>
+    </keep-alive>
   </div>
 </template>
 <script lang="ts">

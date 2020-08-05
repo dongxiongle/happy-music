@@ -14,6 +14,11 @@ const routes: Array<RouteConfig> = [
       {
         path: 'find',
         component: () => import('@/views/find/index.vue')
+      },
+      {
+        path: 'canvas',
+        name: 'CanvasIndex',
+        component: () => import('@/views/canvas/index.vue')
       }
     ]
   }
