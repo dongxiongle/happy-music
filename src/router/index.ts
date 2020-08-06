@@ -17,11 +17,6 @@ const routes: Array<RouteConfig> = [
         component: () => import('@/views/find/index.vue')
       },
       {
-        path: 'canvas',
-        name: 'CanvasIndex',
-        component: () => import('@/views/canvas/index.vue')
-      },
-      {
         path: 'home',
         name: 'HomeIndex',
         component: () => import('@/views/home/index.vue')
@@ -37,6 +32,11 @@ const routes: Array<RouteConfig> = [
         component: () => import('@/views/video/index.vue')
       }
     ]
+  },
+  {
+    path: '/canvas',
+    name: 'CanvasIndex',
+    component: () => import('@/views/canvas/index.vue')
   }
 ]
 
