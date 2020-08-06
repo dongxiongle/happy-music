@@ -1,17 +1,15 @@
 <template>
   <div>
-    <van-sticky>
-      <div class="navWrapper">
-        <van-icon name="friends-o" size="20" style="padding-left: 20px;" />
-        <van-tabs v-model="currentPath" style="flex:1;">
-          <van-tab title="我的" replace to="/home"></van-tab>
-          <van-tab title="发现" replace to="/find"></van-tab>
-          <van-tab title="云村" replace to="/friend"></van-tab>
-          <van-tab title="视频" replace to="/vedio"></van-tab>
-        </van-tabs>
-        <van-icon name="search" size="20" style="padding-right: 20px;" />
-      </div>
-    </van-sticky>
+    <div class="navWrapper">
+      <van-icon name="friends-o" size="20" style="padding-left: 20px;" />
+      <ul class="navBox">
+        <router-link tag="li" class="navItem" to="/home" replace>我的</router-link>
+        <router-link tag="li" class="navItem" to="/find" replace>发现</router-link>
+        <router-link tag="li" class="navItem" to="/friend" replace>云村</router-link>
+        <router-link tag="li" class="navItem" to="/vedio" replace>视频</router-link>
+      </ul>
+      <van-icon name="search" size="20" style="padding-right: 20px;" />
+    </div>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -33,8 +31,16 @@ export default class NavIndex extends Vue {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .van-tabs__line {
-    background-color: transparent;
+  position: sticky;
+  padding: 8px 0;
+  .navBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .navItem {
+      padding: 0 10px;
+    }
   }
 }
 </style>
