@@ -3,10 +3,11 @@
     <div class="navWrapper">
       <van-icon name="friends-o" size="20" style="padding-left: 20px;" />
       <ul class="navBox">
-        <router-link tag="li" class="navItem" to="/home" replace>我的</router-link>
-        <router-link tag="li" class="navItem" to="/find" replace>发现</router-link>
-        <router-link tag="li" class="navItem" to="/friend" replace>云村</router-link>
-        <router-link tag="li" class="navItem" to="/vedio" replace>视频</router-link>
+        <template v-for="(item, index) in pathList">
+          <li :key="index" :class="['navItem', item.path == currentPath ? '' : null]" @click="changePath(index)" >
+            <p :class="[item.path == currentPath ? 'activItem' : null]">{{item.title}}</p>
+          </li>
+        </template>
       </ul>
       <van-icon name="search" size="20" style="padding-right: 20px;" />
     </div>
@@ -22,7 +23,18 @@ import { Vue, Component } from 'vue-property-decorator';
 })
 export default class NavIndex extends Vue {
   name = 'NavIndex';
-  currentPath = 0;
+  currentPath = this.$router.currentRoute.path;
+  pathList = [
+    { title: '我的', path: '/home' },
+    { title: '发现', path: '/find' },
+    { title: '云村', path: '/friend' },
+    { title: '视频', path: '/vedio' }
+  ];
+
+  changePath(index: number) {
+    this.currentPath = this.pathList[index].path;
+    this.$router.replace({ path: this.currentPath });
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -40,6 +52,12 @@ export default class NavIndex extends Vue {
     justify-content: space-around;
     .navItem {
       padding: 0 10px;
+    }
+    p {
+      transition: all 0.1s linear;
+    }
+    .activItem {
+      transform: scale(1.2);
     }
   }
 }

@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 
 import vant from 'vant';
+import '@/assets/less/index.less';
 import 'vant/lib/index.less';
 
 Vue.use(vant);
