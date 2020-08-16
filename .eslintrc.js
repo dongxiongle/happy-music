@@ -4,6 +4,9 @@ module.exports = {
     node: true,
     jest: true
   },
+  globals: {
+    APIHOST: true
+  },
   extends: [
     'plugin:vue/essential',
     '@vue/standard',
