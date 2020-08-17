@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Notify } from 'vant';
-import { bannerSwiperFn } from './config/find';
+import { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn } from './config/find';
 
 axios.defaults.baseURL = '//' + process.env.VUE_APP_APIHOST;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -16,4 +16,4 @@ axios.interceptors.response.use(response => {
 
 export default axios;
 
-export { bannerSwiperFn };
+export { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn };

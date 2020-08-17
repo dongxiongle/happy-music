@@ -11,16 +11,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import VueLazyload from 'vue-lazyload';
+
 import vant from 'vant';
-import VueAwesomeSwiper from 'vue-awesome-swiper';
 import '@/assets/less/index.less';
 import 'vant/lib/index.less';
 
-import 'swiper/swiper.less';
-import 'swiper/swiper-bundle.css';
-
 Vue.use(vant);
-Vue.use(VueAwesomeSwiper);
+Vue.use(VueLazyload);
 
 Vue.config.productionTip = false
 

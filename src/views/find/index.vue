@@ -7,23 +7,27 @@
  * @FilePath: \happy-music\src\views\find\index.vue
 -->
 <template>
-  <div class="outWrap">
-    {{name}}
-    <swiper ref="mySwiper" class="swiper component" :options="swiperdDrectiveOption">
+  <div>
+    <van-swipe ref="mySwiper" :autoplay="5000" indicator-color="white">
       <template v-for="(item, index) in swiperList">
-        <swiper-slide :key="index">
-          <img :src="item.pic" alt="">
-        </swiper-slide>
+        <van-swipe-item :key="index">
+          <div class="bannerOut">
+            <div class="bannerBox">
+              <img :src="item.pic">
+              <span class="typeTitle" :style="'background-color:'+item.titleColor">{{item.typeTitle}}</span>
+            </div>
+          </div>
+        </van-swipe-item>
       </template>
       <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+    </van-swipe>
+    <div>发现好歌</div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { SwiperOptions } from 'swiper';
 
-import { bannerSwiperFn } from '@/api';
+import { bannerSwiperFn, recResourceFn } from '@/api';
 
 interface Banners {
   pic: string;
@@ -32,38 +36,47 @@ interface Banners {
   typeTitle?: string;
 }
 
-interface ResBanners {
-  banners: Array<Banners>;
-  code: number;
-}
-
 @Component
 export default class FindIndex extends Vue {
   name = 'findIndex';
   swiperList = [] as Array<Banners>;
-  swiperdDrectiveOption: SwiperOptions = {
-    loop: true,
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 10,
-    slideClass: 'custom-slide-class',
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    }
-  };
 
   @Prop() msg!: string;
 
   mounted() {
-    bannerSwiperFn().then((res: Response<ResBanners>) => {
-      this.swiperList = res.banners as Array<Banners>;
+    bannerSwiperFn().then((res: any) => {
+      this.swiperList = res.banners;
+    })
+    recResourceFn().then((res: any) => {
+      console.log(res);
     })
   }
 }
 </script>
 <style lang="less" scoped>
-.outWrap {
-  padding: 20px 0;
+@pd: 10px 20px;
+@bdr: 4px;
+.bannerOut {
+  padding: @pd;
+  width: 100vw;
+  box-sizing: border-box;
+  .bannerBox {
+    position: relative;
+    border-radius: @bdr;
+    overflow: hidden;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+  .typeTitle {
+    position: absolute;
+    right: -1px;
+    bottom: 0;
+    color: #fff;
+    padding: 2px 8px;
+    font-size: 10px;
+    border-top-left-radius: @bdr;
+  }
 }
 </style>

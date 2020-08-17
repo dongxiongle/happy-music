@@ -17,7 +17,7 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'main',
     component: NavIndex,
-    redirect: '/fine',
+    redirect: '/find',
     children: [
       {
         path: 'find',
