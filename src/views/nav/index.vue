@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="navWrapper">
-      <van-icon name="friends-o" size="20" style="padding-left: 20px;" />
+      <van-icon name="friends-o" size="20" style="padding-left: 20px;" @click="showSetting" />
       <ul class="navBox">
         <template v-for="(item, index) in pathList">
           <li :key="index" :class="['navItem', item.path == currentPath ? '' : null]" @click="changePath(index)" >
@@ -11,6 +11,9 @@
       </ul>
       <van-icon name="search" size="20" style="padding-right: 20px;" />
     </div>
+    <van-popup v-model="show" position="left" :style="{ width: '80%', background: 'transparent' }">
+      <setting />
+    </van-popup>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -18,12 +21,16 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import Setting from '@/views/setting/index.vue';
 @Component({
-  components: {}
+  components: {
+    setting: Setting
+  }
 })
 export default class NavIndex extends Vue {
   name = 'NavIndex';
   currentPath = this.$router.currentRoute.path;
+  show = false;
   pathList = [
     { title: '我的', path: '/home' },
     { title: '发现', path: '/find' },
@@ -34,6 +41,11 @@ export default class NavIndex extends Vue {
   changePath(index: number) {
     this.currentPath = this.pathList[index].path;
     this.$router.replace({ path: this.currentPath });
+  }
+
+  showSetting() {
+    this.show = true;
+    console.log(this.show);
   }
 }
 </script>

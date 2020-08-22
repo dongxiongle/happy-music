@@ -3,7 +3,7 @@
  * @Date: 2020-07-27 21:48:24
  * @LastEditTime: 2020-08-16 22:17:24
  * @LastEditors: Please set LastEditors
- * @Description: 
+ * @Description:
  * @FilePath: \happy-music\src\shims-tsx.d.ts
  */
 import Vue, { VNode } from 'vue';

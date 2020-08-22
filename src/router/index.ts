@@ -45,6 +45,11 @@ const routes: Array<RouteConfig> = [
     path: '/canvas',
     name: 'CanvasIndex',
     component: () => import('@/views/canvas/index.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/index.vue')
   }
 ]
 
