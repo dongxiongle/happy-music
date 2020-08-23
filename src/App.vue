@@ -18,7 +18,6 @@ const userState = namespace('user');
   components: {}
 })
 export default class App extends Vue {
-
   @userState.Mutation('SETPROFILE') SETPROFILE!: Function
   @userState.Mutation('SETBINDINGS') SETBINDINGS!: Function
   @userState.Mutation('SETLOGINSTATUS') SETLOGINSTATUS!: Function

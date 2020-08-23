@@ -21,6 +21,7 @@ module.exports = {
     semi: 0,
     'space-before-function-paren': 0,
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/camelcase': 'off'
+    '@typescript-eslint/camelcase': 'off',
+    'no-duplicate-imports': 0
   }
 }

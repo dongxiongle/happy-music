@@ -1,3 +1,11 @@
+/*
+ * @Author: young
+ * @Date: 2020-08-23 21:54:21
+ * @LastEditTime: 2020-08-23 21:57:19
+ * @LastEditors: Please set LastEditors
+ * @Description: config
+ * @FilePath: \happy-music\vue.config.js
+ */
 const path = require('path');
 module.exports = {
   devServer: {

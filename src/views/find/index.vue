@@ -1,11 +1,3 @@
-<!--
- * @Author: young
- * @Date: 2020-08-15 12:44:48
- * @LastEditTime: 2020-08-16 22:52:01
- * @LastEditors: Please set LastEditors
- * @Description: 发现
- * @FilePath: \happy-music\src\views\find\index.vue
--->
 <template>
   <div>
     <van-swipe ref="mySwiper" :autoplay="5000" indicator-color="white">
