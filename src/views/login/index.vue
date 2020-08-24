@@ -66,6 +66,7 @@ export default class Login extends Vue {
         this.SETPROFILE(profile);
         this.SETBINDINGS(bindings);
         this.SETLOGINSTATUS(true);
+        this.$router.go(-1);
       } else {
         Toast(message);
         this.SETLOGINSTATUS(false);

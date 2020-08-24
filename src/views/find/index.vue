@@ -13,7 +13,17 @@
       </template>
       <div class="swiper-pagination" slot="pagination"></div>
     </van-swipe>
-    <div>发现好歌</div>
+    <p class="findTitle">发现好歌</p>
+    <div class="resourceWrap">
+      <div class="wrap">
+        <template v-for="(recommend, index) in recommendList">
+          <div class="resourceBox" :key="'resource' + index">
+            <img :src="recommend.picUrl"/>
+            <p>{{recommend.name}}</p>
+          </div>
+        </template>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -32,6 +42,7 @@ interface Banners {
 export default class FindIndex extends Vue {
   name = 'findIndex';
   swiperList = [] as Array<Banners>;
+  recommendList = [];
 
   @Prop() msg!: string;
 
@@ -40,7 +51,10 @@ export default class FindIndex extends Vue {
       this.swiperList = res.banners;
     })
     recResourceFn().then((res: any) => {
-      console.log(res);
+      const { code, recommend } = res;
+      if (code === 200) {
+        this.recommendList = recommend.slice(0, 6);
+      }
     })
   }
 }
@@ -69,6 +83,38 @@ export default class FindIndex extends Vue {
     padding: 2px 8px;
     font-size: 10px;
     border-top-left-radius: @bdr;
+  }
+}
+.findTitle {
+  font-size: 16px;
+  color: #111;
+  font-weight: 600;
+  padding: 5px 20px;
+}
+.resourceWrap {
+  overflow-x: auto;
+  .wrap {
+    padding: 0 20px;
+    display: flex;
+    width: calc(180vw + 90px);
+    box-sizing: border-box;
+  }
+  .resourceBox {
+    width: 30vw;
+    margin-right: 10px;
+    p {
+      font-size: 10px;
+      color: #bbb;
+      line-height: 12px;
+    }
+  }
+  .resourceBox:last-child {
+    margin-right: 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
   }
 }
 </style>
