@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'vant';
 // 发现页
-import { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn } from './config/find';
+import { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn, recSongsFn, playListDetailFn, newSongsFn } from './config/find';
 // 用户信息
 import { phoneLoginFn, logoutFn, loginStatusFn } from './config/user';
 
@@ -20,4 +20,4 @@ axios.interceptors.response.use(response => {
 
 export default axios;
 
-export { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn, phoneLoginFn, logoutFn, loginStatusFn };
+export { bannerSwiperFn, dragonBallFn, topPlayListFn, hightqualityFn, recResourceFn, catlistFn, personalizedFn, hotFn, phoneLoginFn, logoutFn, loginStatusFn, recSongsFn, playListDetailFn, newSongsFn };

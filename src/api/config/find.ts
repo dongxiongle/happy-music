@@ -17,12 +17,12 @@ const personalized = '/personalized'; // 推荐歌单
 const hot = '/playlist/hot'; // 热门歌单分类
 // const topListDetail = '/toplist/detail'; // 所有榜单内容摘要
 // const topList = '/top/list'; // 排行榜
-// const playListDetail = '/playlist/detai/'; // 歌单详情
-// const recSongs = '/recommend/songs'; // 每日推荐歌曲
+const playListDetail = '/playlist/detail'; // 歌单详情
+const recSongs = '/recommend/songs'; // 每日推荐歌曲
 const recResource = '/recommend/resource'; // 每日推荐歌单
 // const newAlbum = '/top/album'; // 新碟
 // const getAlbum = '/album'; // 专辑内容
-// const newSongs = '/top/song'; // 新歌
+const newSongs = '/top/song'; // 新歌速递
 // const personalFm = '/personal_fm'; // 私人Fm
 /**
  * 获取banner
@@ -57,11 +57,13 @@ export const topPlayListFn = function(
  * @param {string} cat 比如 ' 华语 '、' 古风 ' 、' 欧美 '、' 流行 ', 默认为 '全部'
  * @return {Array}
  */
-export const hightqualityFn = function(
-  limit = 30,
-  before?: number | string,
-  cat?: string
-) {
+interface Gedan {
+  limit?: number;
+  before?: number | string;
+  cat?: string;
+}
+export const hightqualityFn = function(obj: Gedan) {
+  const { limit, before, cat } = obj;
   return axios.get(hightquality, { params: { limit, before, cat } });
 };
 /**
@@ -87,4 +89,25 @@ export const hotFn = function() {
  */
 export const catlistFn = function() {
   return axios.get(catlist);
+}
+/**
+ * 每日推荐歌曲
+ */
+export const recSongsFn = function() {
+  return axios.get(recSongs);
+}
+
+/**
+ * 获取歌单详情
+ * @param id 歌单id
+ */
+export const playListDetailFn = function(id: number | string) {
+  return axios.get(playListDetail, { params: { id } });
+}
+/**
+ * 新歌速递
+ * @param type 地区类型 全部 0， 华语 7， 欧美 96， 日本 8， 韩国 16
+ */
+export const newSongsFn = function(type = 0) {
+  return axios.get(newSongs, { params: { type } });
 }
