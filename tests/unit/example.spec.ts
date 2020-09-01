@@ -1,6 +1,7 @@
 
 import { shallowMount } from '@vue/test-utils'
 import FindIndex from '@/views/find/index.vue';
+import { Swipe, SwipeItem } from 'vant';
 
 describe('findIndex.vue', () => {
   it('renders props.msg when passed', () => {
@@ -9,7 +10,7 @@ describe('findIndex.vue', () => {
       propsData: { msg }
     });
     console.log('--->', wrapper.text());
-    debugger
+    // debugger
     expect(wrapper.text()).toMatch(msg);
   })
 })

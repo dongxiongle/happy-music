@@ -48,7 +48,7 @@
         </template>
       </div>
     </div>
-    <p class="findTitle">每日推荐歌单</p>
+    <p class="findTitle">每日推荐歌单new message</p>
     <div class="wrapScrollX">
       <div class="wrap">
         <template v-for="(resource, index) in resourceList">
@@ -120,7 +120,7 @@ export default class FindIndex extends Vue {
       const { code, recommend } = res;
       if (code === 200) {
         this.resourceList = recommend.splice(0, 6);
-        this.getplayListDetail(recommend[0].id);
+        // this.getplayListDetail(recommend[0].id);
       }
     })
   }
@@ -133,7 +133,7 @@ export default class FindIndex extends Vue {
       const { code, data } = res;
       if (code === 200) {
         const temp: Array<any> = [];
-        data.dailySongs.forEach((song: any, index: number) => {
+        data.dailySongs.forEach((song: any) => {
           const songId = song.id
           const songName = song.name;
           const songArName = song.ar[0] ? song.ar[0].name : '';
@@ -184,7 +184,7 @@ export default class FindIndex extends Vue {
     this.getDragonBall();
     this.getResource();
     this.getPersonalized();
-    this.getNewSongs();
+    // this.getNewSongs();
     this.getRecSongs();
   }
 }

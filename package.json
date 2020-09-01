@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
-    "test:unit": "jest --no-cache",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve --open",
     "test": "vue-cli-service build --mode test",
-    "test:unit:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --no-cache --runInBand"
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -46,6 +46,7 @@
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "style-resources-loader": "^1.3.3",
+    "ts-import-plugin": "^1.6.6",
     "typescript": "~3.9.3",
     "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "vue-template-compiler": "^2.6.11"

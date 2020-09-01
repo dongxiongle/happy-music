@@ -7,6 +7,8 @@
  * @FilePath: \happy-music\vue.config.js
  */
 const path = require('path');
+const merge = require('webpack-merge');
+const tsImportPluginFactory = require('ts-import-plugin');
 module.exports = {
   devServer: {
     hot: true,
@@ -15,7 +17,7 @@ module.exports = {
     port: '8010',
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://music.jrsq.fun',
         pathRewrite: {
           '^/api': ''
         },
@@ -29,5 +31,23 @@ module.exports = {
       preProcessor: 'less',
       patterns: [path.resolve(__dirname, './src/assets/less/common.less')]
     }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('ts')
+      .use('ts-loader')
+      .tap(options => merge(options, {
+        transpileOnly: true,
+        getCustomTransformers: () => ({
+          before: [ tsImportPluginFactory({
+            libraryName: 'vant',
+            libraryDirectory: 'es',
+            style: true
+          }) ]
+        }),
+        compilerOptions: {
+          module: 'es2015'
+        }
+      }))
   }
 }

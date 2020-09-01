@@ -13,11 +13,18 @@ import store from './store'
 
 import VueLazyload from 'vue-lazyload';
 
-import vant from 'vant';
+import { Button, Swipe, SwipeItem, Popup, Icon, Form, Field, NavBar } from 'vant';
 import '@/assets/less/index.less';
 import 'vant/lib/index.less';
 
-Vue.use(vant);
+Vue.use(Button);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Popup);
+Vue.use(Icon);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(NavBar);
 Vue.use(VueLazyload);
 
 Vue.config.productionTip = false
