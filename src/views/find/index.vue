@@ -262,7 +262,7 @@ img {
   min-width: 100vw;
   box-sizing: border-box;
   .ballBox {
-    width: 12vw;
+    width: 13vw;
     .ball {
       position: relative;
       border-radius: 50%;
@@ -285,7 +285,7 @@ img {
   }
 }
 .subTitle {
-  font-size: 10px;
+  font-size: 12px;
   color: #333;
   line-height: 12px;
   text-align: center;

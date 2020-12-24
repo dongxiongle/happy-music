@@ -36,7 +36,7 @@ export default class Login extends Vue {
   phone = '';
   password = '';
   phonetest = /^1[3-9]\d{9}$/;
-  passwordtest = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,16}$/;
+  passwordtest = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,20}$/;
 
   toLogin() {
     const { phone, password } = this;

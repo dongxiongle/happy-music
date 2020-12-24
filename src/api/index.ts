@@ -14,9 +14,16 @@ axios.interceptors.response.use(response => {
   if (response.data && response.data.code === 200) {
     return response.data;
   } else {
-    Notify('请求失败');
+    Notify(response.data.msg || '请求失败');
+    return response.data;
   }
-})
+}, (error) => {
+  if (error.response && error.response.data) {
+    Notify(error.response.data.msg || '请求失败');
+  }
+  return Promise.reject(error.response);
+}
+)
 
 export default axios;
 

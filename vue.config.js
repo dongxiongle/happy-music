@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /*
  * @Author: young
  * @Date: 2020-08-23 21:54:21
@@ -6,6 +7,7 @@
  * @Description: config
  * @FilePath: \happy-music\vue.config.js
  */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 const merge = require('webpack-merge');
 const tsImportPluginFactory = require('ts-import-plugin');
@@ -39,11 +41,11 @@ module.exports = {
       .tap(options => merge(options, {
         transpileOnly: true,
         getCustomTransformers: () => ({
-          before: [ tsImportPluginFactory({
+          before: [tsImportPluginFactory({
             libraryName: 'vant',
             libraryDirectory: 'es',
             style: true
-          }) ]
+          })]
         }),
         compilerOptions: {
           module: 'es2015'
