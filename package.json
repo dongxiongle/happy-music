@@ -11,7 +11,7 @@
     "report": "vue-cli-service build --report"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "fastclick": "^1.0.6",
     "lodash": "^4.17.19",
